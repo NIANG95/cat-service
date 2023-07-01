@@ -1,0 +1,37 @@
+package org.sid;
+
+import java.util.Date;
+
+import org.sid.dao.EtudiantRepository;
+import org.sid.entities.Etudiant;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ScolariteApplication implements CommandLineRunner {
+	
+	@Autowired
+	private EtudiantRepository etudiantRepository;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(ScolariteApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		etudiantRepository.save(new Etudiant(null,"Fatou Niang","fn@gmail.com",new Date(),154));
+		etudiantRepository.save(new Etudiant(null,"Pape Medoune Niang","pmn@gmail.com",new Date(),152));
+		etudiantRepository.save(new Etudiant(null,"Mame Mbaye Niang","mmn@gmail.com",new Date(),144));
+		etudiantRepository.save(new Etudiant(null,"Dickou Laye Niang","dln@gmail.com",new Date(),124));
+		etudiantRepository.save(new Etudiant(null,"Ndeye Maty Niang","nmn@gmail.com",new Date(),170));
+		etudiantRepository.save(new Etudiant(null,"Libasse Niang","ln@gmail.com",new Date(),188));
+		
+		etudiantRepository.findAll().forEach(et->{
+			System.out.println(et.toString());
+		});
+		
+	}
+
+}

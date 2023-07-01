@@ -1,0 +1,11 @@
+package dev.spring.maven;
+
+import junit.framework.TestCase;
+
+public class CalculMetierTest extends TestCase {
+
+	protected void setUp() throws Exception {
+		super.setUp();
+	}
+
+}
